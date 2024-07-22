@@ -1,6 +1,6 @@
 
 def verificacion(users,nombre,clave):
-    i = 0
+    i = 1
     j = 0
     w = 0
     print(len(users))
@@ -16,7 +16,7 @@ def verificacion(users,nombre,clave):
                 print("Error usuario invalido...")
 
         i += 1
-        j += 1
+        
         
 
 
