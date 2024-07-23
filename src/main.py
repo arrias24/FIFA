@@ -3,6 +3,7 @@ import os
 from controller.bd_conect import conectar_db,desconectar_db #importamos la funcion que conecta la BD
 from modulos.verificacion import *
 from modulos.insert import *
+from modulos.delete import *
 
 conexion = conectar_db() # conectar base de datos
     
@@ -27,9 +28,10 @@ while reset == True:
     if rol == "admin" or rol == "user":
         
         if rol == "admin":
-
+            #eliminar_jugador(conexion)
+            eliminar_equipo(conexion)
             while True:
-                    decision = mostrar_menu()
+                    decision = mostrar_insercion()
                     if decision == "1":
                         insertar_jugador(conexion)
                     elif decision == "2":

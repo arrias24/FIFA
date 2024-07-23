@@ -1,7 +1,7 @@
 import psycopg2
 
-def mostrar_menu():
-    print("\n======= MENÚ PRINCIPAL =======")
+def mostrar_insercion():
+    print("\n======= MENÚ DE INSERCION =======")
     print("1. Insertar Jugador")
     print("2. Insertar Equipo")
     print("3. Insertar País")
