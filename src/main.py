@@ -1,4 +1,5 @@
 import time
+import os 
 from controller.bd_conect import conectar_db,desconectar_db #importamos la funcion que conecta la BD
 from modulos.verificacion import *
 from modulos.insert import *
@@ -8,7 +9,8 @@ conexion = conectar_db() # conectar base de datos
 
 reset = True
 while reset == True:
-
+    os.system("cls")
+  
     #guarda todos los usuarios en un arreglo users 
 
     with conexion.cursor() as cursor: 
@@ -17,12 +19,12 @@ while reset == True:
         users = cursor.fetchall()
 
     #comprobamos usuario    
-    print("INICIO DE LA APLICACION")
+    print("\tINICIO DE LA APLICACION")
     nombre = input("usuario: ")
     clave = input("clave: ")
     rol = verificacion(users,nombre,clave)
     print("\n")
-    if rol != "admin" or rol != "user":
+    if rol == "admin" or rol == "user":
         
         if rol == "admin":
 
@@ -54,9 +56,9 @@ while reset == True:
                         print("Opción no válida. Por favor, elige una opción del menú.")
         if rol == "user":
             print("Eres un usuario")
-
     else:
-        print("[ERROR] - Usuario incorrecto.")
+        if rol == -1:
+         print("[ERROR] - Usuario incorrecto.")
 
     #repetimos bucle
     decision = ""
