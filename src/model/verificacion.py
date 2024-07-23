@@ -8,7 +8,7 @@ def verificacion(users,nombre,clave):
         if users[i - 1][j + 1] == nombre:
             
             if users[i - 1][j + 2] == clave:
-                print ("VERIFICADO - %s" %(users[i - 1][j + 3]))
+                print ("\nPROCESO SATISFACTORIO - BIENVENIDO %s" %(users[i - 1][j + 3]))
                 return (users[i - 1][j + 3])
         else:
             if w == len(users):
