@@ -28,71 +28,66 @@ rol = verificacion(users,nombre,clave)
 reset = True
 while reset == True:
     
-    if rol == "admin" or rol == "user":
+    if rol == "admin" or rol == "cliente" or rol == "empleado":
         
-        if rol == "admin":
+        if rol == "admin": #admin
 
             os.system("cls")
-            print("\nMENU - ADMIN \n")
+            print("\n Menu - Admin \n")
             print("1- Insertar")
             print("2- Eliminar")
-            print("3- Visualizar \n")
+            print("3- Visualizar ")
+            print("4- Actualizar\n")
             decision = int(input("decision: "))
             os.system("cls")
-            
+
             if decision == 1:
-                while True:
-                    decision = mostrar_insercion()
-                    os.system("cls")
-                    if decision == "1":
-                        os.system("cls")
-                        insertar_jugador(conexion)
-                    elif decision == "2":
-                        os.system("cls")
-                        insertar_equipo(conexion)
-                    elif decision == "3":
-                        os.system("cls")
-                        insertar_pais(conexion)
-                    elif decision == "4":
-                        os.system("cls")
-                        insertar_estadio(conexion)
-                    elif decision == "5":
-                        os.system("cls")
-                        insertar_ciudad(conexion)
-                    elif decision == "6":
-                        os.system("cls")
-                        insertar_hotel(conexion)
-                    elif decision == "7":
-                        os.system("cls")
-                        insertar_bus(conexion)
-                    elif decision == "8":
-                        os.system("cls")
-                        insertar_arbitro(conexion)
-                    elif decision == "9":
-                        os.system("cls")
-                        insertar_estadistica_equipo(conexion)
-                    elif decision == "10":
-                        os.system("cls")
-                        insertar_estadistica_jugador(conexion)
-                    elif decision == "0":
-                        break
-                    else:
-                        os.system("cls")
-                        print("Opción no válida. Por favor, elige una opción del menú.")
+                os.system("cls")
+                insert(conexion)
             if decision == 2: 
                 print("En proceso beibi ;)")
-                #eliminar_jugador(conexion)
-                #eliminar_equipo(conexion)
 
             if decision == 3:
                 os.system("cls")
                 visualizar(conexion)    
             
-        if rol == "user":
-                print("Eres un usuario")
+            if decision == 4:
+                os.system("cls")
+                print("En proceso beibe ;)")       
+
+        if rol == "cliente": #cliente
+                os.system("cls")
+                print("\n Menu Cliente \n")
+                print("1- Visualizar\n")
+                decision = int(input("decision: "))
+
+                if decision == 1:
+                    os.system("cls")
+                    visualizar(conexion)
+
+        if rol == "empleado":
+            os.system("cls")
+            print("\n Menu - Empleado \n")
+            print("1- Insertar")
+            print("2- Visualizar ")
+            print("3- Actualizar\n")
+            decision = int(input("decision: "))
+            os.system("cls")
+
+            if decision == 1:
+                os.system("cls")
+                insert(conexion)
+
+            if decision == 2:
+                os.system("cls")
+                visualizar(conexion)    
+            
+            if decision == 3:
+                os.system("cls")
+                print("En proceso beibe ;)")                
     else:
         if rol == -1:
-         print("[ERROR] - Usuario incorrecto.")
+         print("[ERROR] - Usuario o Clave incorrecta.")
 
     #repetimos bucle
 
