@@ -8,6 +8,8 @@ from model.insert import *
 from model.delete import *
 from model.visualizar import *
 from model.user import *
+from model.delete import *
+from model.consulta import *
 
 
 os.system("cls") #limpiamos la consola
@@ -37,7 +39,7 @@ while reset == True:
             print("1- Insertar")
             print("2- Eliminar")
             print("3- Visualizar ")
-            print("4- Actualizar\n")
+            print("4- Consultar\n")
             decision = int(input("decision: "))
             os.system("cls")
 
@@ -45,7 +47,7 @@ while reset == True:
                 os.system("cls")
                 insert(conexion)
             if decision == 2: 
-                print("En proceso beibi ;)")
+                MENU_delete(conexion)
 
             if decision == 3:
                 os.system("cls")
@@ -53,7 +55,7 @@ while reset == True:
             
             if decision == 4:
                 os.system("cls")
-                print("En proceso beibe ;)")       
+                MENU_consultas(conexion)     
 
         if rol == "cliente": #cliente
                 os.system("cls")
@@ -70,7 +72,7 @@ while reset == True:
             print("\n Menu - Empleado \n")
             print("1- Insertar")
             print("2- Visualizar ")
-            print("3- Actualizar\n")
+            
             decision = int(input("decision: "))
             os.system("cls")
 
@@ -81,13 +83,16 @@ while reset == True:
             if decision == 2:
                 os.system("cls")
                 visualizar(conexion)    
-            
-            if decision == 3:
-                os.system("cls")
-                print("En proceso beibe ;)")                
+             
     else:
         if rol == -1:
          print("[ERROR] - Usuario o Clave incorrecta.")
+         print("Por favor verificar los datos ")
+         time.sleep(2)
+         print("\nINGRESA TUS DATOS\n")
+         nombre = input("usuario: ")
+         clave = input("clave: ")
+         rol = verificacion(users,nombre,clave)
 
     #repetimos bucle
 
